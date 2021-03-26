@@ -1,0 +1,5 @@
+rootProject.name = 'datalink'
+include 'datalink-query'
+include 'datalink-sync'
+include 'datalink-db'
+
