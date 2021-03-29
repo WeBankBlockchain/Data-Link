@@ -1,5 +1,7 @@
 plugins {
     id 'java'
+    id 'eclipse'
+    id 'idea'
 }
 
 group 'com.webank'
@@ -8,19 +10,10 @@ version '1.0.0-SNAPSHOT'
 sourceCompatibility = 1.8
 
 repositories {
+    mavenLocal()
     mavenCentral()
+    maven { url "http://maven.aliyun.com/nexus/content/groups/public/"}
+    maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
+    maven { url "https://dl.bintray.com/ethereum/maven/" }
 }
 
-dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'org.slf4j:slf4j-api:1.7.5'
-    // implementation 'org.slf4j:slf4j-log4j12:1.7.5'
-    compileOnly 'org.projectlombok:lombok'
-    annotationProcessor 'org.projectlombok:lombok'
-    testImplementation('org.springframework.boot:spring-boot-starter-test') {
-        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
-    }
-    compile ('org.fisco-bcos.java-sdk:fisco-bcos-java-sdk:2.7.2'){
-        exclude group: 'org.slf4j'
-    }
-}
