@@ -1,5 +1,8 @@
 package com.webank.datalink.sync.task;
 
+import org.springframework.boot.ApplicationArguments;
+import org.springframework.boot.ApplicationRunner;
+
 /**
  * @author aaronchu
  * @Description
@@ -7,6 +10,8 @@ package com.webank.datalink.sync.task;
  */
 public class NodeSyncTask implements ApplicationRunner {
 
-    public void start(){}
+    @Override
+    public void run(ApplicationArguments args) throws Exception {
 
+    }
 }

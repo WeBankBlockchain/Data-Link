@@ -1,4 +1,4 @@
-package com.webank.datalink.query;
+package com.webank.datalink.query.utils;
 
 /**
  * @author aaronchu

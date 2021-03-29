@@ -1,4 +1,4 @@
-package com.webank.datalink.query;
+package com.webank.datalink.query.dao;
 
 import java.sql.SQLException;
 

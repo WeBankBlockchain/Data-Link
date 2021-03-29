@@ -1,4 +1,4 @@
-package com.webank.datalink.query;
+package com.webank.datalink.query.handler;
 
 import org.fisco.bcos.sdk.amop.topic.AmopMsgIn;
 
