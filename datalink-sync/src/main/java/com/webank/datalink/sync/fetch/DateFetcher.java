@@ -13,34 +13,36 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.webank.datalink.sync.dao.impl;
+package com.webank.datalink.sync.fetch;
 
 import com.webank.datalink.sync.config.StashBdConfig;
-import com.webank.datalink.sync.dao.BlockDataDao;
-import com.webank.datalink.sync.handler.FileHandler;
 import com.webank.datalink.sync.handler.SqlHandler;
-import com.webank.datalink.sync.model.BlockInfo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
-import java.io.File;
+import java.util.List;
+import java.util.Map;
 
 /**
- * FileDao
+ * DateFetcher
  *
  * @Description:
  * @Author: grayson
  * @Version 1.0
- * @Date: 2021-03-29 21:55
+ * @Date: 2021-03-30 10:13
  **/
-@Service
-public class FileDao implements BlockDataDao<File> {
+public class DateFetcher {
 
     @Autowired
-    private FileHandler fileHandler;
+    private StashBdConfig stashBdConfig;
+    @Autowired
+    private SqlHandler sqlHandler;
 
-    @Override
-    public File getBlockData() {
+    //需要抽取的方法
+    private List<Map<String, Object>> selectTableDataByNum(
+            String table_name,
+            Integer num,
+            int preIndex,
+            int pageSize){
         return null;
     }
 }

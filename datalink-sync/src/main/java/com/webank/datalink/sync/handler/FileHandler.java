@@ -34,8 +34,8 @@ public class FileHandler {
         //generate db instance file
     }
 
-    public File getFile(String filePath){
-        return null;
+    public boolean pushFile(String filePath){
+        return false;
     }
 
     public boolean deleteFile(String filePath){

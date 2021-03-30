@@ -13,34 +13,30 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.webank.datalink.sync.dao.impl;
-
-import com.webank.datalink.sync.config.StashBdConfig;
-import com.webank.datalink.sync.dao.BlockDataDao;
-import com.webank.datalink.sync.handler.FileHandler;
-import com.webank.datalink.sync.handler.SqlHandler;
-import com.webank.datalink.sync.model.BlockInfo;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+package com.webank.datalink.sync.utils;
 
 import java.io.File;
+import java.io.InputStream;
 
 /**
- * FileDao
+ * FileOperator
  *
  * @Description:
  * @Author: grayson
  * @Version 1.0
- * @Date: 2021-03-29 21:55
+ * @Date: 2021-03-30 10:15
  **/
-@Service
-public class FileDao implements BlockDataDao<File> {
+public class FileOperator {
 
-    @Autowired
-    private FileHandler fileHandler;
+    public static boolean writeFile(){
+        return false;
+    }
 
-    @Override
-    public File getBlockData() {
+    public static InputStream readFile(){
+        return null;
+    }
+
+    public static File getFile(){
         return null;
     }
 }

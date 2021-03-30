@@ -37,19 +37,6 @@ import java.util.Map;
 @Service
 public class DbDao implements BlockDataDao<BlockInfo> {
 
-    @Autowired
-    private StashBdConfig stashBdConfig;
-    @Autowired
-    private SqlHandler sqlHandler;
-
-    //需要抽取的方法
-    private List<Map<String, Object>> selectTableDataByNum(
-            String table_name,
-            Integer num,
-            int preIndex,
-            int pageSize){
-        return null;
-    }
 
     @Override
     public BlockInfo getBlockData() {
