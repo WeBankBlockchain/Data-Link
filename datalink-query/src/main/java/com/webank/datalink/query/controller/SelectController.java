@@ -1,5 +1,6 @@
 package com.webank.datalink.query.controller;
 
+import com.webank.datalink.query.model.dto.rest.RestRequest;
 import com.webank.datalink.query.model.dto.rest.RestResponse;
 import com.webank.datalink.query.model.SelectRequest;
 import com.webank.datalink.query.service.impl.RestSelectService;
@@ -14,7 +15,7 @@ public class SelectController {
 
     private  RestSelectService restSelectService;
 
-    public RestResponse select(@RequestBody SelectRequest request){
+    public RestResponse select(@RequestBody RestRequest request){
         return null;
     }
 
