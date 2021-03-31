@@ -13,7 +13,7 @@ public class AmopCallback implements AmopMsgCallback{
 
     private Client client;
 
-    public AmopMsgOut handle(AmopMsgIn in){
+    public AmopMsgOut onMessage(AmopMsgIn in){
         return null;
     }
 
