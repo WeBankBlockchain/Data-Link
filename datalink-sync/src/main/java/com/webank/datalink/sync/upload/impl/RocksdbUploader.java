@@ -13,36 +13,32 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.webank.datalink.sync.fetch;
+package com.webank.datalink.sync.upload.impl;
 
-import com.webank.datalink.sync.config.StashBdConfig;
-import com.webank.datalink.sync.handler.SqlHandler;
+import com.webank.datalink.sync.dao.BlockDataDao;
+import com.webank.datalink.sync.model.BlockInfo;
+import com.webank.datalink.sync.upload.DataUpload;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Map;
+import java.io.File;
 
 /**
- * DateFetcher
+ * FileStore
  *
  * @Description:
  * @Author: grayson
  * @Version 1.0
- * @Date: 2021-03-30 10:13
+ * @Date: 2021-03-29 20:44
  **/
-public class DateFetcher {
+@Service
+public class RocksdbUploader implements DataUpload<BlockInfo> {
 
     @Autowired
-    private StashBdConfig stashBdConfig;
-    @Autowired
-    private SqlHandler sqlHandler;
+    private BlockDataDao blockDataDao;
 
-    //需要抽取的方法
-    private List<Map<String, Object>> selectTableDataByNum(
-            String table_name,
-            Integer num,
-            int preIndex,
-            int pageSize){
-        return null;
+    @Override
+    public void uploadBlockData(BlockInfo blockData) {
+
     }
 }

@@ -15,7 +15,8 @@
  */
 package com.webank.datalink.sync.model;
 
-import com.oracle.webservices.internal.api.databinding.DatabindingMode;
+
+import java.util.Map;
 
 /**
  * BlockInfo
@@ -27,7 +28,7 @@ import com.oracle.webservices.internal.api.databinding.DatabindingMode;
  **/
 public class BlockInfo {
 
-    //TODO: 定义获取数据的属性
-    private String tableName;
+    //private String tableName;
     //other attr
+    private Map<String, TableData> tableDataMap;
 }

@@ -1,17 +1,22 @@
 package com.webank.datalink.sync.task;
 
-import org.springframework.boot.ApplicationArguments;
-import org.springframework.boot.ApplicationRunner;
+import com.webank.datalink.sync.dao.impl.StashDbDao;
+import com.webank.datalink.sync.upload.DataUpload;
 
 /**
  * @author aaronchu
  * @Description
  * @data 2021/03/26
  */
-public class NodeSyncTask implements ApplicationRunner {
+@Service
+public class NodeSyncTask {
+    @Autowired
+    private StashDbDao stashDbDao;
 
-    @Override
-    public void run(ApplicationArguments args) throws Exception {
+    @Autowired
+    private DataUpload dataUpload;
+
+    public void run() throws Exception {
 
     }
 }

@@ -13,31 +13,30 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.webank.datalink.sync.upload.impl;
+package com.webank.datalink.sync.dao.impl;
 
 import com.webank.datalink.sync.dao.BlockDataDao;
-import com.webank.datalink.sync.upload.DataUpload;
+import com.webank.datalink.sync.file.FileHandler;
+import com.webank.datalink.sync.file.SqlHandler;
+import com.webank.datalink.sync.model.BlockInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.io.File;
-
 /**
- * FileStore
+ * DbDao
  *
  * @Description:
  * @Author: grayson
  * @Version 1.0
- * @Date: 2021-03-29 20:44
+ * @Date: 2021-03-29 21:53
  **/
 @Service
-public class FileUploader implements DataUpload<File> {
+public class StashDbDao implements BlockDataDao<BlockInfo> {
 
-    @Autowired
-    private BlockDataDao blockDataDao;
 
     @Override
-    public void uploadBlockData(File blockData) {
-
+    public BlockInfo getBlockData() {
+        //循环调用selectTableDataByNum获取数据并组装
+        return null;
     }
 }
