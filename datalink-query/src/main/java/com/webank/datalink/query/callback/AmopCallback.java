@@ -13,7 +13,7 @@ public class AmopCallback implements AmopMsgCallback{
 
     private Client client;
 
-    public byte[] handle(AmopMsgIn in){
+    public AmopMsgOut handle(AmopMsgIn in){
         return null;
     }
 

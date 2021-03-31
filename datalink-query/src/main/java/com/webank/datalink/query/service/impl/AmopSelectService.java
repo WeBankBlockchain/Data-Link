@@ -7,10 +7,10 @@ import com.webank.datalink.query.service.SelectService;
  * @Description
  * @data 2021/03/26
  */
-public class AmopSelectService implements SelectService<AmopMsgIn, byte[]> {
+public class AmopSelectService implements SelectService<AmopMsgIn, AmopMsgOut> {
 
     @Override
-    public byte[] select(AmopMsgIn request) throws Exception {
+    public AmopMsgOut select(AmopMsgIn request) throws Exception {
         return null;
     }
 }
