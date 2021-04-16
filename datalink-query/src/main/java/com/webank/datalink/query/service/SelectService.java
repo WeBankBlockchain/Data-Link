@@ -1,6 +1,7 @@
 package com.webank.datalink.query.service;
 
 import com.webank.datalink.query.model.SelectResponse;
+import org.springframework.stereotype.Service;
 
 /**
  * @author aaronchu

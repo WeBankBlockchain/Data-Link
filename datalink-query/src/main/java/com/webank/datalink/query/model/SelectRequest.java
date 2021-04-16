@@ -1,5 +1,7 @@
 package com.webank.datalink.query.model;
 
+import lombok.Data;
+
 import java.util.List;
 
 /**
@@ -7,11 +9,13 @@ import java.util.List;
  * @Description
  * @data 2021/03/26
  */
+@Data
 public class SelectRequest {
 
-    private String op;
-
+    private String blockHash;
+    private Integer num;
     private String table;
+    private String key;
+    private List<List<String>>	condition;
 
-    private List<String> conditions;
 }

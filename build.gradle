@@ -1,6 +1,7 @@
+
 plugins {
-    id 'org.springframework.boot' version '2.4.4'
-    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'org.springframework.boot' version '2.2.4.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.9.RELEASE'
     id 'java'
     id 'eclipse'
     id 'idea'
@@ -12,12 +13,16 @@ group = 'com.webank'
 version = '1.0.0-SNAPSHOT'
 
 
-repositories {
-    mavenLocal()
-    mavenCentral()
-    maven { url "http://maven.aliyun.com/nexus/content/groups/public/"}
-    maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
-    maven { url "https://dl.bintray.com/ethereum/maven/" }
+allprojects {
+    repositories {
+        maven {
+            url "http://maven.aliyun.com/nexus/content/groups/public/"
+        }
+        maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
+        maven { url "https://dl.bintray.com/ethereum/maven/" }
+        mavenLocal()
+        jcenter()
+    }
 }
 
 configurations {
@@ -36,6 +41,7 @@ dependencies {
     compile ('org.fisco-bcos.java-sdk:fisco-bcos-java-sdk:2.7.2'){
         exclude group: 'org.slf4j'
     }
+
 }
 
 
@@ -67,4 +73,33 @@ bootJar {
 clean {
     println "delete ${projectDir}/dist"
     delete "${projectDir}/dist"
+}
+
+subprojects {
+    apply plugin: "java"
+
+    apply plugin: "org.springframework.boot"
+    apply plugin: "io.spring.dependency-management"
+    sourceCompatibility = '1.8'
+    targetCompatibility = '1.8'
+
+    def defaultEncoding = 'UTF-8'
+    tasks.withType(AbstractCompile).each { it.options.encoding = defaultEncoding }
+
+    dependencies {
+        implementation 'org.springframework.boot:spring-boot-starter-web'
+        compileOnly 'org.projectlombok:lombok'
+        annotationProcessor 'org.projectlombok:lombok'
+        testImplementation('org.springframework.boot:spring-boot-starter-test') {
+            exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+        }
+        compile 'com.webank:data-export-sdk:1.7.2-SNAPSHOT'
+
+        compile ('org.fisco-bcos.java-sdk:fisco-bcos-java-sdk:2.7.2'){
+            exclude group: 'org.slf4j'
+        }
+        compile 'org.mybatis:mybatis:3.2.8'
+        compile 'org.mybatis:mybatis-spring:1.2.2'
+    }
+
 }

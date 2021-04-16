@@ -1,6 +1,8 @@
 package com.webank.datalink.query.service.impl;
 
 import com.webank.datalink.query.service.SelectService;
+import org.fisco.bcos.sdk.amop.AmopMsgOut;
+import org.fisco.bcos.sdk.amop.topic.AmopMsgIn;
 
 /**
  * @author aaronchu
