@@ -93,13 +93,12 @@ subprojects {
         testImplementation('org.springframework.boot:spring-boot-starter-test') {
             exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
         }
-        compile 'com.webank:data-export-sdk:1.7.2-SNAPSHOT'
-
         compile ('org.fisco-bcos.java-sdk:fisco-bcos-java-sdk:2.7.2'){
             exclude group: 'org.slf4j'
         }
         compile 'org.mybatis:mybatis:3.2.8'
         compile 'org.mybatis:mybatis-spring:1.2.2'
+        compile 'mysql:mysql-connector-java'
     }
 
 }
