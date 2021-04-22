@@ -10,7 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @date 2021/4/21
  */
 @SpringBootApplication
-@MapperScan("com.webank.datalink.query.dao")
+@MapperScan({"com.webank.datalink.query.dao"})
 public class DataLink {
 
     public static void main(String[] args) throws Exception {

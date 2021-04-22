@@ -5,6 +5,7 @@ import com.webank.datalink.query.model.SelectRequest;
 import com.webank.datalink.query.model.SelectResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -17,6 +18,7 @@ import java.util.Map;
  * @data 2021/03/31
  */
 @Slf4j
+@Component
 public class SelectHandler {
 
     @Autowired

@@ -15,8 +15,10 @@
  */
 package com.webank.datalink.sync.config;
 
+import com.zaxxer.hikari.HikariDataSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.env.Environment;
 
 import javax.sql.DataSource;
 
@@ -29,10 +31,15 @@ import javax.sql.DataSource;
  * @Date: 2021-03-29 20:46
  **/
 @Configuration
-public class StashBdConfig {
+public class StashDdConfig {
 
-    @Bean
-    public DataSource dataSource(){
-        return null;
+
+    @Bean(name = "stashDataSource")
+    public DataSource dataSource(Environment env){
+        HikariDataSource ds = new HikariDataSource();
+        ds.setJdbcUrl(env.getProperty("spring.datasource.url"));
+        ds.setUsername(env.getProperty("spring.datasource.username"));
+        ds.setPassword(env.getProperty("spring.datasource.password"));
+        return ds;
     }
 }

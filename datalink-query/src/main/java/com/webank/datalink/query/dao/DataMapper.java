@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 public interface DataMapper {
+
 	 List<Map<String, Object> > queryData(@Param("table")String table,
 			@Param("num")Integer num,
 			@Param("indices_equal")String indices_equal,
