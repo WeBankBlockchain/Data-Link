@@ -1,10 +1,13 @@
 package com.webank.datalink.query.service.impl;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.webank.datalink.query.handler.SelectHandler;
+import com.webank.datalink.query.model.Header;
+import com.webank.datalink.query.model.Request;
 import com.webank.datalink.query.model.Response;
 import com.webank.datalink.query.model.SelectRequest;
-import com.webank.datalink.query.model.SelectResponse;
+import com.webank.datalink.query.model.SelectResponse2;
 import com.webank.datalink.query.service.SelectService;
 import lombok.extern.slf4j.Slf4j;
 import org.fisco.bcos.sdk.amop.AmopMsgOut;
@@ -31,11 +34,22 @@ public class AmopSelectService implements SelectService<AmopMsgIn, AmopMsgOut> {
     public AmopMsgOut select(AmopMsgIn msgIn) throws Exception {
         int resultCode = 0;
 
-        SelectResponse resultData = null;
-        SelectRequest request = objectMapper.readValue(msgIn.getContent(),
-                SelectRequest.class);
+        SelectResponse2 resultData = null;
+        log.trace("Process receives the request: {}", msgIn.getContent());
+        Header header = objectMapper.readValue(msgIn.getContent(), Header.class);
+        if (header.getOp() == null) {
+            throw new Exception("Failed to parse header.op:" + msgIn.getContent());
+        }
+
+        if (!header.getOp().equals("select2")){
+            return new AmopMsgOut();
+        }
+        Request<SelectRequest> request = objectMapper.readValue(msgIn.getContent(),
+                new TypeReference<Request<SelectRequest>>() {
+                });
+        SelectRequest selectRequest = request.getParams();
         try {
-            resultData = selectHandler.select(request);
+            resultData = selectHandler.select(selectRequest);
         } catch (Exception e) {
             resultCode = -1;
             log.error("Process request error", e);
@@ -46,6 +60,7 @@ public class AmopSelectService implements SelectService<AmopMsgIn, AmopMsgOut> {
         response.setResult(resultData);
 
         String out = objectMapper.writeValueAsString(response);
+        System.out.println("result string  :" + out);
 
         AmopMsgOut msgOut = new AmopMsgOut();
         msgOut.setContent(out.getBytes());

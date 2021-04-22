@@ -9,9 +9,11 @@ import org.fisco.bcos.sdk.config.ConfigOption;
 import org.fisco.bcos.sdk.config.exceptions.ConfigException;
 import org.fisco.bcos.sdk.config.model.ConfigProperty;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.DependsOn;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -25,22 +27,19 @@ import java.util.Map;
  */
 
 @Configuration
+@DependsOn("systemConfig")
 @ConfigurationProperties("system")
 @Data
 public class AmopConfig {
 
     //cert
+    @Value("${system.ficso.certPath}")
     private String certPath;
     private int groupId;
     private String nodeStr;
 
     //topic
     private String topic;
-
-    @Bean
-    public Client getClient(@Autowired BcosSDK sdk) throws ConfigException {
-        return sdk.getClient(this.groupId);
-    }
 
     @Bean
     public BcosSDK getSDK() throws ConfigException {

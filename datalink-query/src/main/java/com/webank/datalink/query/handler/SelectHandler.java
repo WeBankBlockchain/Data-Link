@@ -2,7 +2,7 @@ package com.webank.datalink.query.handler;
 
 import com.webank.datalink.query.dao.SqlExecutor;
 import com.webank.datalink.query.model.SelectRequest;
-import com.webank.datalink.query.model.SelectResponse;
+import com.webank.datalink.query.model.SelectResponse2;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -26,8 +26,8 @@ public class SelectHandler {
     @Autowired
     private SqlExecutor sqlExecutor;
 
-    public SelectResponse select(SelectRequest request) throws Exception {
-        SelectResponse response = new SelectResponse();
+    public SelectResponse2 select(SelectRequest request) throws Exception {
+        SelectResponse2 response = new SelectResponse2();
         String conditionSql = sqlTranslateHandler.toSql(request);
         List<Map<String, Object>> data = sqlExecutor.execute(conditionSql,request);
         List<Map<String, Object>> allValues = new ArrayList<>();
@@ -43,7 +43,7 @@ public class SelectHandler {
         } else {
             log.debug("condition sql:{} has no data", conditionSql);
         }
-        response.setData(allValues);
+        response.setColumnValue(allValues);
         return response;
     }
 
