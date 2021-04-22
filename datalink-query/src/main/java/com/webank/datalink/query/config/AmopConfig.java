@@ -61,7 +61,7 @@ public class AmopConfig {
 
     public void setCertPath(ConfigProperty configProperty) {
         Map<String, Object> cryptoMaterial = new HashMap<>();
-        cryptoMaterial.put("certPath", "config");
+        cryptoMaterial.put("certPath", certPath);
         configProperty.setCryptoMaterial(cryptoMaterial);
     }
 

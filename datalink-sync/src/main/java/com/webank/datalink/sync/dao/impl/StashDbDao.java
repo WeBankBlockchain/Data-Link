@@ -16,8 +16,7 @@
 package com.webank.datalink.sync.dao.impl;
 
 import com.webank.datalink.sync.dao.BlockDataDao;
-import com.webank.datalink.sync.file.FileHandler;
-import com.webank.datalink.sync.file.SqlHandler;
+import com.webank.datalink.sync.fetch.DataFetcher;
 import com.webank.datalink.sync.model.BlockInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,10 +32,14 @@ import org.springframework.stereotype.Service;
 @Service
 public class StashDbDao implements BlockDataDao<BlockInfo> {
 
+    @Autowired
+    private DataFetcher dataFetcher;
 
     @Override
     public BlockInfo getBlockData() {
         //循环调用selectTableDataByNum获取数据并组装
+
+
         return null;
     }
 }

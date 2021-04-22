@@ -2,6 +2,8 @@ package com.webank.datalink.sync.task;
 
 import com.webank.datalink.sync.dao.impl.StashDbDao;
 import com.webank.datalink.sync.upload.DataUpload;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  * @author aaronchu

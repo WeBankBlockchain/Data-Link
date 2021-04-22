@@ -19,7 +19,7 @@ import javax.annotation.PostConstruct;
  */
 @Service
 @Slf4j
-public class AmopHandler {
+public class AmopCallBack {
 
     @Autowired
     private AmopConfig config;
