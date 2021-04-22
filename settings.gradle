@@ -1,4 +1,4 @@
-rootProject.name = 'datalink'
+rootProject.name = 'Data-Link'
 include 'datalink-query'
 include 'datalink-sync'
 
