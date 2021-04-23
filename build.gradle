@@ -104,6 +104,7 @@ subprojects {
         compile 'com.google.guava:guava:26.0-jre'
         compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.1'
         compile 'org.springframework:spring-jdbc:4.3.27.RELEASE'
+        compile 'org.rocksdb:rocksdbjni:6.6.4'
     }
 
 }
