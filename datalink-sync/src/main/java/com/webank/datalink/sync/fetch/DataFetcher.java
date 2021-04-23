@@ -15,10 +15,11 @@
  */
 package com.webank.datalink.sync.fetch;
 
-import com.webank.datalink.sync.config.StashBdConfig;
-import com.webank.datalink.sync.file.SqlHandler;
-import org.graalvm.compiler.lir.alloc.lsra.LinearScan;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import java.util.List;
+import java.util.Map;
 
 /**
  * DateFetcher
@@ -28,17 +29,14 @@ import org.springframework.beans.factory.annotation.Autowired;
  * @Version 1.0
  * @Date: 2021-03-30 10:13
  **/
+@Component
 public class DataFetcher {
 
-    @Autowired
-    private StashBdConfig stashBdConfig;
-
-
-    private LinearScan.BlockData selectTableDataByNum(
-            String table_name,
-            Integer num,
-            int preIndex,
-            int pageSize){
-        return null;
-    }
+//    private LinearScan.BlockData selectTableDataByNum(
+//            String table_name,
+//            Integer num,
+//            int preIndex,
+//            int pageSize){
+//        return null;
+//    }
 }
