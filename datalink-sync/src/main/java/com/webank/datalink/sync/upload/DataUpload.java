@@ -1,8 +1,7 @@
 package com.webank.datalink.sync.upload;
 
-import com.webank.datalink.sync.model.BlockInfo;
 
-public interface DataUpload<T> {
+public interface DataUpload {
 
-    public void uploadBlockData(T blockData);
+    public void uploadBlockData();
 }

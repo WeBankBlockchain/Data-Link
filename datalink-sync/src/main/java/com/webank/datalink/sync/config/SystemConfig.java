@@ -28,9 +28,16 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class SystemConfig {
 
-    //ng params
+    private int groupId;
 
-    //node db config
+    private String ip;
 
-    //stash db config
+    private String port;
+
+    private String dbname;
+
+    private String username;
+
+    private String password;
+
 }

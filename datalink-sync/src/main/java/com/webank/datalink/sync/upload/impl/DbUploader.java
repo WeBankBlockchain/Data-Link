@@ -15,10 +15,7 @@
  */
 package com.webank.datalink.sync.upload.impl;
 
-import com.webank.datalink.sync.dao.BlockDataDao;
-import com.webank.datalink.sync.model.BlockInfo;
 import com.webank.datalink.sync.upload.DataUpload;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -30,13 +27,11 @@ import org.springframework.stereotype.Service;
  * @Date: 2021-03-29 20:44
  **/
 @Service
-public class DbUploader implements DataUpload<BlockInfo> {
+public class DbUploader implements DataUpload {
 
-    @Autowired
-    private BlockDataDao blockDataDao;
 
     @Override
-    public void uploadBlockData(BlockInfo blockData) {
+    public void uploadBlockData() {
 
     }
 }

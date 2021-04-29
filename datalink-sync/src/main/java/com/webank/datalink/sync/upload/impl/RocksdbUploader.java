@@ -15,17 +15,9 @@
  */
 package com.webank.datalink.sync.upload.impl;
 
-import com.webank.datalink.sync.dao.BlockDataDao;
-import com.webank.datalink.sync.model.BlockInfo;
 import com.webank.datalink.sync.upload.DataUpload;
-import org.rocksdb.Options;
-import org.rocksdb.RocksDB;
 import org.rocksdb.RocksDBException;
-import org.rocksdb.RocksIterator;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.io.File;
 
 /**
  * FileStore
@@ -36,36 +28,15 @@ import java.io.File;
  * @Date: 2021-03-29 20:44
  **/
 @Service
-public class RocksdbUploader implements DataUpload<BlockInfo> {
-
-    @Autowired
-    private BlockDataDao blockDataDao;
+public class RocksdbUploader implements DataUpload {
 
     @Override
-    public void uploadBlockData(BlockInfo blockData) {
+    public void uploadBlockData( ) {
 
     }
 
-    static {
-        RocksDB.loadLibrary();
-    }
-    private static RocksDB rocksDB;
-    private static String path = "/Users/admin/Downloads/rowdb";
+
 
     public static void main(String[] args) throws RocksDBException {
-        Options options = new Options();
-        options.setCreateIfMissing(true);
-        rocksDB = RocksDB.open(options,path);
-        rocksDB.put("aaa".getBytes(),"bbb".getBytes());
-        System.out.println("-----");
-        byte[] bytes = rocksDB.get("aaa".getBytes());
-        System.out.println(new String(bytes));
-        RocksIterator iter = rocksDB.newIterator();
-        for (iter.seekToFirst();iter.isValid();iter.next()) {
-            System.out.println("iter key: " + new String(iter.key()) + ",iter value: " +
-                    new String(iter.value()));
-        }
     }
-
-
 }

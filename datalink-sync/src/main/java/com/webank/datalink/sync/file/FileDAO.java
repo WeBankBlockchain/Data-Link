@@ -1,6 +1,5 @@
 package com.webank.datalink.sync.file;
 
-import com.webank.datalink.sync.model.BlockInfo;
 
 import java.io.File;
 
